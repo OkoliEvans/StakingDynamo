@@ -45,7 +45,7 @@ export const App = () => {
               <Route index element={<Ethers />} />
               <Route path="/token" element={<TokenDashboard />} />
               <Route path="/pool" element={<StakePool />} />
-              <Route path="/dashboard" element={<NewDashboard />} />
+              <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/dashboard/:address" element={<Token />} />
               <Route path="/portfolio" element={<Portfolio />} />
             </Route>

@@ -20,7 +20,7 @@ export const WithdrawForm = () => {
             ],
         });
 
-        const { data: stakeTokenData, isLoading: stakeTokenIsLoading, write: stakeToken } = useContractWrite(config)
+        const { data: stakeTokenData, isLoading: stakeTokenIsLoading, write: WithdrawStake } = useContractWrite(config)
 
 
 
@@ -40,7 +40,7 @@ export const WithdrawForm = () => {
             setTimeout(() => {
                 // console.log({ name, period, tokenPerVote, contenders1, contenders2, contenders3 })
 
-                stakeToken?.()
+                WithdrawStake?.()
             }, 1000)
         }
 
@@ -93,7 +93,7 @@ export const WithdrawForm = () => {
                 </div>
             </div>
 
-            <button type="submit" className="w-full bg-zinc-800 text-white rounded-md p-2 hover:bg-zinc-900">Stake Token</button>
+            <button type="submit" className="w-full bg-zinc-800 text-white rounded-md p-2 hover:bg-zinc-900">Withdraw Token</button>
         </form>
     )
             

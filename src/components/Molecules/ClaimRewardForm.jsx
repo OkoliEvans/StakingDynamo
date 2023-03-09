@@ -20,7 +20,7 @@ export const ClaimRewardForm = () => {
             ],
         });
 
-        const { data: stakeTokenData, isLoading: stakeTokenIsLoading, write: stakeToken } = useContractWrite(config)
+        const { data: stakeTokenData, isLoading: stakeTokenIsLoading, write: ClaimReward } = useContractWrite(config)
 
 
 
@@ -40,7 +40,7 @@ export const ClaimRewardForm = () => {
             setTimeout(() => {
                 // console.log({ name, period, tokenPerVote, contenders1, contenders2, contenders3 })
 
-                stakeToken?.()
+                ClaimReward?.()
             }, 1000)
         }
 
@@ -92,7 +92,7 @@ export const ClaimRewardForm = () => {
                 </div>
             </div>
 
-            <button type="submit" className="w-full bg-zinc-800 text-white rounded-md p-2 hover:bg-zinc-900">Stake Token</button>
+            <button type="submit" className="w-full bg-zinc-800 text-white rounded-md p-2 hover:bg-zinc-900">Claim Reward</button>
         </form>
     )
             
