@@ -15,6 +15,8 @@ import { Token } from './pages/Token';
 import { Portfolio } from './pages/Portfolio';
 import { Ethers } from './pages/Ethers';
 import { NewDashboard } from './pages/NewDashboard';
+import { xDashboard } from './pages/xDashboard';
+
 
 const chains = [goerli, sepolia];
 

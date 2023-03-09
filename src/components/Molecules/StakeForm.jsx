@@ -1,6 +1,7 @@
     import { useEffect, useState } from "react";
 import { useContractRead, useContractWrite, usePrepareContractWrite } from "wagmi";
     import stakingABI from '../../utils/abi/StakingABI.json'
+    import { erc20ABI } from "wagmi";
 
 
 export const StakeForm = () => {
@@ -20,9 +21,24 @@ export const StakeForm = () => {
             ],
         });
 
+        // const { config: approval } = usePrepareContractWrite({
+        //     address: contractAddress,
+        //     abi: erc20ABI,
+        //     functionName: "approve",
+        //     args: [
+        //         _contractAddress,tokenAmount
+        //     ],
+        // });
+
         const { data: stakeTokenData, isLoading: stakeTokenIsLoading, write: stakeToken } = useContractWrite(config)
-
-
+        const { data: approveData, isLoading: approveIsLoading, write: approve } = useContractWrite({
+            address: contractAddress,
+            abi: erc20ABI,
+            functionName: "approve",
+            args: [
+                _contractAddress,tokenAmount
+            ]
+        })
 
 
         // const { data: ballotName, isLoading: ballotIsLoading, isError: ballotIsError } = useContractRead({
@@ -32,15 +48,13 @@ export const StakeForm = () => {
         // })
 
 
-
-
         const handleSubmit = (e) => {
             e.preventDefault()
-
+            console.log("click");
             setTimeout(() => {
-                // console.log({ name, period, tokenPerVote, contenders1, contenders2, contenders3 })
-
-                stakeToken?.()
+                
+                approve?.();
+                stakeToken?.();
             }, 1000)
         }
 
